@@ -339,6 +339,8 @@ My goal is to keep improving my technical skills and build meaningful projects t
 ©  Harini Portfolio
 </footer>
 
+<canvas id="particles"></canvas>
+
 <script>
 
 /* DARK LIGHT MODE */
@@ -467,6 +469,5 @@ init();
 });
 
 </script>
-<canvas id="particles"></canvas>
 </body>
 </html>
