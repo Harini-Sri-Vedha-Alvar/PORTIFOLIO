@@ -143,13 +143,6 @@ padding-left:10px;
 
 /* CARDS */
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:40px;
-}
-
 .card{
 background: rgba(255,255,255,0.05);
 backdrop-filter: blur(10px);
@@ -347,7 +340,6 @@ My goal is to keep improving my technical skills and build meaningful projects t
 </footer>
 
 <canvas id="particles"></canvas>
-
 <script>
 
 /* DARK LIGHT MODE */
@@ -442,22 +434,11 @@ if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
 if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
 }
 
-function drawLines(){
-for(let i=0;i<particlesArray.length;i++){
-for(let j=i;j<particlesArray.length;j++){
-let dx = particlesArray[i].x - particlesArray[j].x;
-let dy = particlesArray[i].y - particlesArray[j].y;
-let distance = Math.sqrt(dx*dx + dy*dy);
-
-if(distance < 100){
-ctx.strokeStyle = "rgba(99,102,241,0.2)";
-ctx.lineWidth = 0.5;
+draw(){
+ctx.fillStyle = "#6366f1";
 ctx.beginPath();
-ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-ctx.stroke();
-}
-}
+ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+ctx.fill();
 }
 }
 
@@ -474,7 +455,6 @@ particlesArray.forEach(p=>{
 p.update();
 p.draw();
 });
-drawLines(); // ADD THIS LINE
 requestAnimationFrame(animate);
 }
 
